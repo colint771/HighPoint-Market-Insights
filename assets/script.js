@@ -28,7 +28,7 @@ fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + a
 
 
 // get-returns
-// fetch('https://ms-finance.p.rapidapi.com/market/v2/get-returns?performanceIds=0P0000OQN8%2C0P000000GY?rapidapi-key=' + apiKey)
+// fetch('https://ms-finance.p.rapidapi.com/market/v2/get-returns?performanceIds=0P0000OQN8%2C0P000000GY&rapidapi-key=' + apiKey)
 // 	.then((response) => {
 // 		return response.json()
 // 	})
@@ -39,17 +39,17 @@ fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + a
 // 		console.error(err)
 // 	});
 
-// // get real time data
-// fetch('https://ms-finance.p.rapidapi.com/market/v2/get-realtime-data?performanceIds=0P0000OQN8%2C0P000000GY?rapidapi-key=' + apiKey)
-// 	.then((response) => {
-// 		return response.json()
-// 	})
-// 	.then((data) => {
-// 		console.log(data)
-// 	})
-// 	.catch((err) => {
-// 		console.error(err)
-// 	});
+// get real time data
+fetch('https://ms-finance.p.rapidapi.com/market/v2/get-realtime-data?performanceIds=0P0000OQN8%2C0P000000GY&rapidapi-key=' + apiKey)
+	.then((response) => {
+		return response.json()
+	})
+	.then((data) => {
+		console.log(data)
+	})
+	.catch((err) => {
+		console.error(err)
+	});
 
 // // get time series
 // fetch('https://ms-finance.p.rapidapi.com/market/v2/get-time-series?performanceIds=0P0000OQN8%2C0P000000GY?rapidapi-key=' + apiKey)
@@ -64,7 +64,7 @@ fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + a
 // 	});
 
 // // get summary
-// fetch('https://ms-finance.p.rapidapi.com/market/get-summary?rapidapi-key=' + apiKey)
+// fetch('https://ms-finance.p.rapidapi.com/market/get-summary&rapidapi-key=' + apiKey)
 // 	.then((response) => {
 // 		return response.json()
 // 	})
@@ -76,7 +76,7 @@ fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + a
 // 	});
 
 // // get global indices
-// fetch('https://ms-finance.p.rapidapi.com/market/get-global-indices?rapidapi-key=' + apiKey)
+// fetch('https://ms-finance.p.rapidapi.com/market/get-global-indices&rapidapi-key=' + apiKey)
 // 	.then((response) => {
 // 		return response.json()
 // 	})
@@ -387,8 +387,5 @@ fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + a
 // 	.catch((err) => {
 // 		console.error(err)
 // 	});
-
-
-// // figure out what the response object needs to be and how to make these apis work with the HTML
 
 // // only fetch on user input or fetch in groupings
