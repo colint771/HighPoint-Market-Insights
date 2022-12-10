@@ -14,17 +14,33 @@ fetch('https://ms-finance.p.rapidapi.com/market/v2/auto-complete?q=SPX&rapidapi-
         console.error(error)
 	});
 
-// get movers
 fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + apiKey)
 	.then((response) => {
 		return response.json()
 	})
 	.then((data) => {
 		console.log(data)
+		let HTML = ""
+		for (let i=0; i < data.gainers.length; i++){
+			HTML += "<p>" + data.gainers[i].ticker + " " + data.gainers[i].lastPrice + " " + data.gainers[i].percentNetChange + "</p>"
+		}
+		document.getElementById ("gainers").innerHTML += HTML
 	})
 	.catch((err) => {
 		console.error(err)
 	});
+
+// get movers
+// fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + apiKey)
+// 	.then((response) => {
+// 		return response.json()
+// 	})
+// 	.then((data) => {
+// 		console.log(data)
+// 	})
+// 	.catch((err) => {
+// 		console.error(err)
+// 	});
 
 
 // get-returns
@@ -75,17 +91,17 @@ fetch('https://ms-finance.p.rapidapi.com/market/v2/get-realtime-data?performance
 // 		console.error(err)
 // 	});
 
-// // get global indices
-// fetch('https://ms-finance.p.rapidapi.com/market/get-global-indices&rapidapi-key=' + apiKey)
-// 	.then((response) => {
-// 		return response.json()
-// 	})
-// 	.then((data) => {
-// 		console.log(data)
-// 	})
-// 	.catch((err) => {
-// 		console.error(err)
-// 	});
+// get global indices
+fetch('https://ms-finance.p.rapidapi.com/market/get-global-indices?performanceIds=0P0000OQN8%2C0P000000GY&rapidapi-key=' + apiKey)
+	.then((response) => {
+		return response.json()
+	})
+	.then((data) => {
+		console.log(data)
+	})
+	.catch((err) => {
+		console.error(err)
+	});
 
 // // real time data
 // fetch('https://ms-finance.p.rapidapi.com/stock/v2/get-realtime-data?performanceId=0P0000OQN8?rapidapi-key=' + apiKey)
@@ -338,14 +354,20 @@ fetch('https://ms-finance.p.rapidapi.com/market/v2/get-realtime-data?performance
 // 		console.error(err)
 // 	});
 
-// // Articles 
-// // article list
-// fetch('https://ms-finance.p.rapidapi.com/articles/list?performanceId=0P0000OQN8?rapidapi-key=' + apiKey)
+// Articles 
+// article list
+// fetch('https://ms-finance.p.rapidapi.com/articles/list?performanceId=0P0000OQN8&rapidapi-key=' + apiKey)
 // 	.then((response) => {
 // 		return response.json()
 // 	})
 // 	.then((data) => {
 // 		console.log(data)
+// 		let HTML = ""
+// 		var newsArray = [20];
+// 		for (let i=0; i < data.news.length; i++) {
+// 			HTML += "<p>" + data.news[i].title + " " + data.news[i].providerName + " " + data.news[i].sourceName + " " + data.news[i].publishedDate + "</p>"
+// 		}
+// 		document.getElementById ("news").innerHTML += HTML
 // 	})
 // 	.catch((err) => {
 // 		console.error(err)
@@ -365,27 +387,42 @@ fetch('https://ms-finance.p.rapidapi.com/market/v2/get-realtime-data?performance
 
 // // News
 // // news list
-// fetch('https://ms-finance.p.rapidapi.com/news/list?performanceId=0P0000OQN8?rapidapi-key=' + apiKey)
+fetch('https://ms-finance.p.rapidapi.com/news/list?performanceId=0P0000OQN8&rapidapi-key=' + apiKey)
+	.then((response) => {
+		return response.json()
+	})
+	.then((data) => {
+		console.log(data)
+		let HTML = ""
+		for (let i=0; i < data.news.length; i++) {
+			HTML += "<p>" + data.news[i].title + " " + data.news[i].providerName + " " + data.news[i].sourceName + " " + data.news[i].publishedDate + "</p>"
+		}
+		document.getElementById ("news").innerHTML += HTML
+	})
+	.catch((error) => {
+		console.error(error)
+	});
+
+// news get detail
+// fetch('https://ms-finance.p.rapidapi.com/news/get-details?id=20220217655&sourceId=marketwatch&rapidapi-key=' + apiKey)
 // 	.then((response) => {
 // 		return response.json()
 // 	})
 // 	.then((data) => {
+// 	var news = []
+// 	if (news.length > 0) {
 // 		console.log(data)
+// 		let HTML = ""
+// 		for (let i=0; i < data.news.length; i++) {
+// 			HTML += "<p>" + data.news[i].title + " " + data.news[i].providerName + " " + data.news[i].sourceName + " " + data.news[i].publishedDate + "</p>"
+// 		}
+// 		document.getElementById ("news").innerHTML += HTML
+// 	} else {
+// 		console.log("Not Available")
+// 	}
 // 	})
 // 	.catch((err) => {
 // 		console.error(err)
 // 	});
 
-// // news get detail
-// fetch('https://ms-finance.p.rapidapi.com/news/get-details?id=20220217655&sourceId=marketwatch?rapidapi-key=' + apiKey)
-// 	.then((response) => {
-// 		return response.json()
-// 	})
-// 	.then((data) => {
-// 		console.log(data)
-// 	})
-// 	.catch((err) => {
-// 		console.error(err)
-// 	});
-
-// // only fetch on user input or fetch in groupings
+// only fetch on user input or fetch in groupings
