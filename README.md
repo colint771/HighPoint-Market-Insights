@@ -19,6 +19,6 @@ The following image is a screenshot of the application:
 Colin Taliaferro, Cristhian Bustamante, Kadeem Wilcox, and Brandon Orozco
 APIs: MS Finance, Marketaux
 
-##License
+## License
 
 Please refer to the LICENSE in the Repository
