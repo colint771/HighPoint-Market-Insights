@@ -1,19 +1,21 @@
 const apiKey = '2259296caamsha3a762d7515a724p19faecjsne57da4f0abd4';
 
 // auto fill
-fetch('https://ms-finance.p.rapidapi.com/market/v2/auto-complete?q=SPX&rapidapi-key=' + apiKey)
-//response	
-	.then((response) => {
- 		return response.json()
-    })
-// complete data stream
-	.then((data) => {
-        console.log(data)
-    })
-	.catch((error) => {
-        console.error(error)
-	});
+// fetch('https://ms-finance.p.rapidapi.com/market/v2/auto-complete?q=SPX&rapidapi-key=' + apiKey)
+// //response	
+// 	.then((response) => {
+//  		return response.json()
+//     })
+// // complete data stream
+// 	.then((data) => {
+//         console.log(data)
+//     })
+// 	.catch((error) => {
+//         console.error(error)
+// 	});
 
+
+// gainers, actives, losers
 fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + apiKey)
 	.then((response) => {
 		return response.json()
@@ -21,8 +23,19 @@ fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + a
 	.then((data) => {
 		console.log(data)
 		let HTML = ""
+	// gainers
 		for (let i=0; i < data.gainers.length; i++){
-			HTML += "<p>" + data.gainers[i].ticker + " " + data.gainers[i].lastPrice + " " + data.gainers[i].percentNetChange + "</p>"
+			HTML += "<div>" + data.gainers[i].ticker + " " + data.gainers[i].lastPrice + " " + data.gainers[i].percentNetChange + "</div>"
+		}
+		document.getElementById ("gainers").innerHTML += HTML
+	//actives
+		for (let i=0; i < data.actives.length; i++){
+			HTML += "<div>" + data.actives[i].ticker + " " + data.actives[i].lastPrice + " " + data.actives[i].percentNetChange + "</div>"
+		}
+		document.getElementById ("gainers").innerHTML += HTML
+	//losers
+		for (let i=0; i < data.actives.length; i++){
+			HTML += "<div>" + data.losers[i].ticker + " " + data.losers[i].lastPrice + " " + data.losers[i].percentNetChange + "</div>"
 		}
 		document.getElementById ("gainers").innerHTML += HTML
 	})
@@ -30,17 +43,22 @@ fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + a
 		console.error(err)
 	});
 
-// get movers
-// fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + apiKey)
-// 	.then((response) => {
-// 		return response.json()
-// 	})
-// 	.then((data) => {
-// 		console.log(data)
-// 	})
-// 	.catch((err) => {
-// 		console.error(err)
-// 	});
+// crypto coin list
+fetch('https://investing-cryptocurrency-markets.p.rapidapi.com/coins/list?edition_currency_id=12&time_utc_offset=28800&lang_ID=1&sort=PERC1D_DN&page=1&rapidapi-key=' + apiKey)
+	.then((response) => {
+		return response.json()
+	})
+	.then((data) => {
+		console.log(data)
+		let HTML = ""
+		for (let i=0; i < data.data[0].screen_data.crypto_data.length; i++){
+			HTML += "<div>" + data.data[0].screen_data.crypto_data[i].currency_symbol + " " + data.data[0].screen_data.crypto_data[i].name + " " + data.data[0].screen_data.crypto_data[i].inst_price_usd + " " + data.data[0].screen_data.crypto_data[i].change_percent_1d + "</div>"
+		}
+		document.getElementById ("crypto").innerHTML += HTML
+	})
+		.catch((err) => {
+			console.error(err)
+	});
 
 
 // get-returns
@@ -56,16 +74,16 @@ fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + a
 // 	});
 
 // get real time data
-fetch('https://ms-finance.p.rapidapi.com/market/v2/get-realtime-data?performanceIds=0P0000OQN8%2C0P000000GY&rapidapi-key=' + apiKey)
-	.then((response) => {
-		return response.json()
-	})
-	.then((data) => {
-		console.log(data)
-	})
-	.catch((err) => {
-		console.error(err)
-	});
+// fetch('https://ms-finance.p.rapidapi.com/market/v2/get-realtime-data?performanceIds=0P0000OQN8%2C0P000000GY&rapidapi-key=' + apiKey)
+// 	.then((response) => {
+// 		return response.json()
+// 	})
+// 	.then((data) => {
+// 		console.log(data)
+// 	})
+// 	.catch((err) => {
+// 		console.error(err)
+// 	});
 
 // // get time series
 // fetch('https://ms-finance.p.rapidapi.com/market/v2/get-time-series?performanceIds=0P0000OQN8%2C0P000000GY?rapidapi-key=' + apiKey)
@@ -98,9 +116,15 @@ fetch('https://ms-finance.p.rapidapi.com/market/get-global-indices?performanceId
 	})
 	.then((data) => {
 		console.log(data)
+		let HTML = ""
+		for (let i=0; i < data.gmbIndexDataList.length; i++){
+			HTML += "<div>" + data.gmbIndexDataList[i].ticker + " " + data.gmbIndexDataList[i].companyName + " " + data.gmbIndexDataList[i].lastPrice + " " + data.gmbIndexDataList[i].netChangePer + "</div>"
+	}
+		document.getElementById ("indices").innerHTML += HTML
 	})
 	.catch((err) => {
 		console.error(err)
+		
 	});
 
 // // real time data
@@ -211,17 +235,6 @@ fetch('https://ms-finance.p.rapidapi.com/market/get-global-indices?performanceId
 // 		console.error(err)
 // 	});
 
-// // get splits
-// fetch('https://ms-finance.p.rapidapi.com/stock/v2/get-splits?performanceId=0P0000OQN8?rapidapi-key=' + apiKey)
-// 	.then((response) => {
-// 		return response.json()
-// 	})
-// 	.then((data) => {
-// 		console.log(data)
-// 	})
-// 	.catch((err) => {
-// 		console.error(err)
-// 	});
 
 // // get executives
 // fetch('https://ms-finance.p.rapidapi.com/stock/v2/get-executive?performanceId=0P0000OQN8&executive=keyExecutives?rapidapi-key=' + apiKey)
@@ -259,17 +272,6 @@ fetch('https://ms-finance.p.rapidapi.com/market/get-global-indices?performanceId
 // 		console.error(err)
 // 	});
 
-// // get ownership 
-// fetch('https://ms-finance.p.rapidapi.com/stock/v2/get-ownership?performanceId=0P0000OQN8&ownership=ConcentratedOwners&asset=mutualfund?rapidapi-key=' + apiKey)
-// 	.then((response) => {
-// 		return response.json()
-// 	})
-// 	.then((data) => {
-// 		console.log(data)
-// 	})
-// 	.catch((err) => {
-// 		console.error(err)
-// 	});
 
 // // get valuation
 // fetch('https://ms-finance.p.rapidapi.com/stock/v2/get-valuation?performanceId=0P0000OQN8?rapidapi-key=' + apiKey)
@@ -282,6 +284,7 @@ fetch('https://ms-finance.p.rapidapi.com/market/get-global-indices?performanceId
 // 	.catch((err) => {
 // 		console.error(err)
 // 	});
+
 // // get dividends
 // fetch('https://ms-finance.p.rapidapi.com/stock/v2/get-dividends?performanceId=0P0000OQN8?rapidapi-key=' + apiKey)
 // 	.then((response) => {
@@ -386,43 +389,19 @@ fetch('https://ms-finance.p.rapidapi.com/market/get-global-indices?performanceId
 // 	});
 
 // // News
-// // news list
-fetch('https://ms-finance.p.rapidapi.com/news/list?performanceId=0P0000OQN8&rapidapi-key=' + apiKey)
+// // news list'
+fetch('https://api.marketaux.com/v1/news/all?language=en&api_token=IQFcJSeC8TJ5PhJTmkBFh3wox5cDjhDeBM3bjz9s')
 	.then((response) => {
 		return response.json()
 	})
 	.then((data) => {
 		console.log(data)
 		let HTML = ""
-		for (let i=0; i < data.news.length; i++) {
-			HTML += "<p>" + data.news[i].title + " " + data.news[i].providerName + " " + data.news[i].sourceName + " " + data.news[i].publishedDate + "</p>"
+		for (let i=0; i < data.data.length; i++) {
+			HTML += '<ul><a href=" + data.data[i].url">' + data.data[i].title + " " + '</a></ul>'
 		}
 		document.getElementById ("news").innerHTML += HTML
 	})
 	.catch((error) => {
 		console.error(error)
 	});
-
-// news get detail
-// fetch('https://ms-finance.p.rapidapi.com/news/get-details?id=20220217655&sourceId=marketwatch&rapidapi-key=' + apiKey)
-// 	.then((response) => {
-// 		return response.json()
-// 	})
-// 	.then((data) => {
-// 	var news = []
-// 	if (news.length > 0) {
-// 		console.log(data)
-// 		let HTML = ""
-// 		for (let i=0; i < data.news.length; i++) {
-// 			HTML += "<p>" + data.news[i].title + " " + data.news[i].providerName + " " + data.news[i].sourceName + " " + data.news[i].publishedDate + "</p>"
-// 		}
-// 		document.getElementById ("news").innerHTML += HTML
-// 	} else {
-// 		console.log("Not Available")
-// 	}
-// 	})
-// 	.catch((err) => {
-// 		console.error(err)
-// 	});
-
-// only fetch on user input or fetch in groupings
