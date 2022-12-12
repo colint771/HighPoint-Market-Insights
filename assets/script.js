@@ -398,7 +398,7 @@ fetch('https://api.marketaux.com/v1/news/all?language=en&api_token=IQFcJSeC8TJ5P
 		console.log(data)
 		let HTML = ""
 		for (let i=0; i < data.data.length; i++) {
-			HTML += '<ul><a href=" + data.data[i].url">' + data.data[i].title + " " + '</a></ul>'
+			HTML += '<ul>' + data.data[i].title + " " + '</ul>'
 		}
 		document.getElementById ("news").innerHTML += HTML
 	})
