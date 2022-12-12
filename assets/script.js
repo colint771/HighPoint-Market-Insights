@@ -10,19 +10,19 @@ fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + a
 		let HTML = ""
 	// gainers
 		for (let i=0; i < data.gainers.length; i++){
-			HTML += "<div>" + data.gainers[i].ticker + " " + data.gainers[i].lastPrice + " " + data.gainers[i].percentNetChange + "</div>"
+			HTML += "<div>" + data.gainers[i].ticker + " " + '$' + data.gainers[i].lastPrice + " " + data.gainers[i].percentNetChange + '%' + "</div>"
 		}
 		document.getElementById ("gainers").innerHTML += HTML
 	//actives
 		for (let i=0; i < data.actives.length; i++){
-			HTML += "<div>" + data.actives[i].ticker + " " + data.actives[i].lastPrice + " " + data.actives[i].percentNetChange + "</div>"
+			HTML += "<div>" + data.actives[i].ticker + " " + '$' + data.actives[i].lastPrice + " " + data.actives[i].percentNetChange + '%' + "</div>"
 		}
-		document.getElementById ("gainers").innerHTML += HTML
+		document.getElementById ("actives").innerHTML += HTML
 	//losers
 		for (let i=0; i < data.actives.length; i++){
-			HTML += "<div>" + data.losers[i].ticker + " " + data.losers[i].lastPrice + " " + data.losers[i].percentNetChange + "</div>"
+			HTML += "<div>" + data.losers[i].ticker + " " + '$' + data.losers[i].lastPrice + " " + data.losers[i].percentNetChange + '%' + "</div>"
 		}
-		document.getElementById ("gainers").innerHTML += HTML
+		document.getElementById ("losers").innerHTML += HTML
 	})
 	.catch((err) => {
 		console.error(err)
