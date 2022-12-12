@@ -17,3 +17,8 @@ The following image is a screenshot of the application:
 ## Credits
 
 Colin Taliaferro, Cristhian Bustamante, Kadeem Wilcox, and Brandon Orozco
+APIs: MS Finance, Marketaux
+
+##License
+
+Please refer to the LICENSE in the Repository
