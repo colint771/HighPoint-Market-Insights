@@ -1,7 +1,19 @@
 # HighPoint-Market-Insights
-USER STORIES 
-* As an investor I want to be able to see the top gainers of the market up to date.
-* As an investor I would like to be able to get a menu bar or a navbar with the different buttons that show different options for example: top gains, most popular stocks, most activity, crypto.
-* As an inverstor I would like to see what stocks have a higher dividend pay off.
-* As an investor I would like to get a little bit of history on the stocks.
-* As an investor I would like to be able to contact someone for comments and concerns on the web application.
+
+## Description
+
+HighPoint Market Insights is a website made for investors, by investors. This web applications utilizes server-side APIs so users can see the top gainers, losers, and most active stocks on the US markets every day. Additioanlly, the users are able to see the performance of indices across the globe. Finally, users can see the top crypto gainers
+
+## Installation
+N/A
+
+## Usage
+
+To use this web application, follow this link: https://colint771.github.io/HighPoint-Market-Insights
+
+The following image is a screenshot of the application:
+![img]
+
+## Credits
+
+Colin Taliaferro, Cristhian Bustamante, Kadeem Wilcox, and Brandon Orozco
