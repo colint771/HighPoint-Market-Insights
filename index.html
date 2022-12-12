@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FWCC-Project</title>
+    <title>HighPoint Market Insights</title>
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -32,10 +32,8 @@
     <!-- End Top Bar -->
 
 
-    <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
-      <ul class="orbit-container">
-        <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
-        <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>
+    
+      <ul>
         <li class="orbit-slide is-active">
           <img src="assets/pictures/bitcoin-caroussel.jpg" alt="bitcoin symbol">
         </li>
@@ -49,71 +47,106 @@
           <img src="assets/pictures/U.S.Market.jpg">
         </li>
       </ul>
-    </div>
+    
+      <section>
+        <h2 class="heading">U.S. Markets</h2>
+          <div class="flexbox-container">
+            <div class="flexbox-container1">
+              
+              <!-- gainers heading -->
+              <div class="header">
+                <h4>Gainers</h4>
+              </div>
 
-    <div class="row column text-center">
-      <h2>U.S. Markets</h2>
-        <h4 class="row column text-left">Gainers</h4>
-        <h4 class="row column text-center">Actives</h4>
-        <h4 class="row column text-right">Losers</h4>
+            
+                <!--gainer subheadings  -->
+              <div class="subheading">
+                <div class="center-text">
+                  <h6 class="center-text">Ticker &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Last Price &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  % Change</h6>
+                </div>
+              </div>
 
-        <div id="gainers" class="row column text-left">
-          <h6>Ticker</h6>
-          <h6>Last Price</h6>
-          <h6>% Change (Day)</h6>
-        </div>
-        <div id="actives" class="row column text-center">
-          <h6>Ticker</h6>
-          <h6>Last Price</h6>
-          <h6>% Change (Day)</h6>
-        </div>
-        <div id="losers" class="row column text-right">
-          <h6>Ticker</h6>
-          <h6>Last Price</h6>
-          <h6>% Change (Day)</h6>
-        </div>
+                <!-- gainers API data -->
+              <div class="data">
+                <div id="gainers"></div>
+              </div>
+            </div>
+
+                <!-- Actives -->
+            <div class="flexbox-container2">
+              <div class="header">
+                <h4>Actives</h4>
+              </div>
+
+              <!-- Actives Subheadings -->
+              <section class="subheading">
+                <div class="center-text">
+                  <h6 class="center-text">Ticker &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Last Price &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  % Change</h6>
+                </div>
+              </section>
+              <!-- Actives API data TODO: LINE UP EVENLY IF Possible APPLIES TO GAINERS LOSERS AND ACTIVES -->
+              <section class="data">
+                <div id="actives"></div>
+              </section>
+            </div>
+
+            <!-- losers -->
+            <div class="flexbox-container3">
+              <div class="header">
+                <h4>Losers</h4>
+              </div>
+
+              <section class="subheading">
+                <div class="center-text">
+                  <h6 class="center-text">Ticker &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Last Price &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  % Change</h6>
+                </div>
+              </section>
+
+              <section class="data">
+                <div id="losers"></div>
+              </section>
+            </div>
+          </div>
+      </section>
       <hr>
-    </div>
 
-    <hr>
+      <hr>
+      <!-- TODO: NEED TO FIX THIS - somehow get subheading (ticker, price, etc) to line up with the data -->
+      <div id ="indices">
+        <h2 class="heading">Global Markets</h2>
+          <div class="flexbox-container">
+            <div class="flexbox-container4">
+              <h6 class="center-text">Ticker &nbsp; &nbsp; &nbsp; &nbsp; Index Name &nbsp; &nbsp; &nbsp; &nbsp; Last Price &nbsp; &nbsp; &nbsp; &nbsp;  % Change</h6>
+            </div>
+            <section class="data">
+              <div id="indices"></div>
+            </section>
+          </div>
+      </div>
+      
+      <hr>
 
-    <hr>
-
-    <div id ="indices">
-      <h2 class="row column text-center">Global Markets</h2>
-      <p class="subheader">
-        <h6>Ticker</h4>
-        <h6>Index Name</h4>
-        <h6>Last Price</h4>
-        <h6>% Change (Day)</h4>
+      <hr>
+      <!-- Uncomment API on Script and put in similar format to the INDICES part TRY AND LINE IT UP EVENLY -->
+      <div id ="crypto">
+        <h2 class="heading">Crypto Top Gainers</h2>
+        <h6>Ticker</h6>
+        <h6>Name</h6>
+        <h6>Last Price</h6>
+        <h6> % Change (Day)</h6>
         <hr>
-      </p>
-    </div>
-    
-    <hr>
+      </div>
 
-    <hr>
-
-    <div id ="crypto">
-      <h2 class="row column text-center">Crypto Top Gainers</h2>
-      <h4>Ticker</h4>
-      <h4>Name</h4>
-      <h4>Last Price</h4>
-      <h4> % Change (Day)</h4>
       <hr>
-    </div>
 
-    <hr>
-
-    <hr>
-
-    <div id ="news">
-      <h2 class="row column text-center">News</h2>
       <hr>
-    </div>
+<!-- uncomment the news API and center the article titles-->
+      <div id ="news">
+        <h2 class="row column text-center">News</h2>
+        <hr>
+      </div>
+      
+    <script src="assets/js/script.js"></script>
     
-
-
-    <script src="assets/script.js"></script>
   </body>
 </html>

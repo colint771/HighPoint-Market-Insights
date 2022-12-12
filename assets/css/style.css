@@ -1,5 +1,93 @@
 .menu{
-    display:inline
+    display:flex;
 }
 
+body{
+    background: whitesmoke;
+}
+
+h2,
+h4 {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.flexbox-container {
+    padding: 30px 30px 15px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.flexbox-container1 {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 33%;
+    flex-direction: column;
+    background-color:aquamarine;
+    border: 2px solid black;
+    margin-left: 1%;
+}
+
+.flexbox-container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    flex-direction: column;
+    background-color:lightblue;
+    border: 2px solid black;
+}
+
+.flexbox-container3 {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 33%;
+    flex-direction: column;
+    background-color:lightsalmon;
+    border: 2px solid black;
+}
+
+.flexbox-container4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    background-color:lightgrey;
+    border: 2px solid black;
+}
+
+.subheading {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.center-text {
+    font-weight: bold;
+}
+
+
+
+div.data {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 200%;
+    flex-wrap: wrap;
+}
+
+.wrapper {
+    display: grid;
+    grid-column: 33%;
+}
+
+ .heading {
+    text-align: center;
+} 
 
