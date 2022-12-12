@@ -1,20 +1,5 @@
 const apiKey = '2259296caamsha3a762d7515a724p19faecjsne57da4f0abd4';
 
-// auto fill
-// fetch('https://ms-finance.p.rapidapi.com/market/v2/auto-complete?q=SPX&rapidapi-key=' + apiKey)
-// //response	
-// 	.then((response) => {
-//  		return response.json()
-//     })
-// // complete data stream
-// 	.then((data) => {
-//         console.log(data)
-//     })
-// 	.catch((error) => {
-//         console.error(error)
-// 	});
-
-
 // gainers, actives, losers
 fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + apiKey)
 	.then((response) => {
@@ -60,6 +45,58 @@ fetch('https://investing-cryptocurrency-markets.p.rapidapi.com/coins/list?editio
 			console.error(err)
 	});
 
+// get global indices
+fetch('https://ms-finance.p.rapidapi.com/market/get-global-indices?performanceIds=0P0000OQN8%2C0P000000GY&rapidapi-key=' + apiKey)
+	.then((response) => {
+		return response.json()
+	})
+	.then((data) => {
+		console.log(data)
+		let HTML = ""
+		for (let i=0; i < data.gmbIndexDataList.length; i++){
+			HTML += "<div>" + data.gmbIndexDataList[i].ticker + " " + data.gmbIndexDataList[i].companyName + " " + data.gmbIndexDataList[i].lastPrice + " " + data.gmbIndexDataList[i].netChangePer + "</div>"
+	}
+		document.getElementById ("indices").innerHTML += HTML
+	})
+	.catch((err) => {
+		console.error(err)
+		
+	});
+
+
+// News
+fetch('https://api.marketaux.com/v1/news/all?language=en&api_token=IQFcJSeC8TJ5PhJTmkBFh3wox5cDjhDeBM3bjz9s')
+	.then((response) => {
+		return response.json()
+	})
+	.then((data) => {
+		console.log(data)
+		let HTML = ""
+		for (let i=0; i < data.data.length; i++) {
+			HTML += '<ul><a href="' + data.data[i].url + '">' + data.data[i].title + " " + '</a></ul>'
+		}
+		document.getElementById ("news").innerHTML += HTML
+	})
+	.catch((error) => {
+		console.error(error)
+	});
+
+
+// Unused APIs that we may add later for greater function in the application
+
+// auto fill
+// fetch('https://ms-finance.p.rapidapi.com/market/v2/auto-complete?q=SPX&rapidapi-key=' + apiKey)
+// //response	
+// 	.then((response) => {
+//  		return response.json()
+//     })
+// // complete data stream
+// 	.then((data) => {
+//         console.log(data)
+//     })
+// 	.catch((error) => {
+//         console.error(error)
+// 	});
 
 // get-returns
 // fetch('https://ms-finance.p.rapidapi.com/market/v2/get-returns?performanceIds=0P0000OQN8%2C0P000000GY&rapidapi-key=' + apiKey)
@@ -108,26 +145,7 @@ fetch('https://investing-cryptocurrency-markets.p.rapidapi.com/coins/list?editio
 // 	.catch((err) => {
 // 		console.error(err)
 // 	});
-
-// get global indices
-fetch('https://ms-finance.p.rapidapi.com/market/get-global-indices?performanceIds=0P0000OQN8%2C0P000000GY&rapidapi-key=' + apiKey)
-	.then((response) => {
-		return response.json()
-	})
-	.then((data) => {
-		console.log(data)
-		let HTML = ""
-		for (let i=0; i < data.gmbIndexDataList.length; i++){
-			HTML += "<div>" + data.gmbIndexDataList[i].ticker + " " + data.gmbIndexDataList[i].companyName + " " + data.gmbIndexDataList[i].lastPrice + " " + data.gmbIndexDataList[i].netChangePer + "</div>"
-	}
-		document.getElementById ("indices").innerHTML += HTML
-	})
-	.catch((err) => {
-		console.error(err)
-		
-	});
-
-// // real time data
+// real time data
 // fetch('https://ms-finance.p.rapidapi.com/stock/v2/get-realtime-data?performanceId=0P0000OQN8?rapidapi-key=' + apiKey)
 // 	.then((response) => {
 // 		return response.json()
@@ -387,21 +405,3 @@ fetch('https://ms-finance.p.rapidapi.com/market/get-global-indices?performanceId
 // 	.catch((err) => {
 // 		console.error(err)
 // 	});
-
-// // News
-// // news list'
-fetch('https://api.marketaux.com/v1/news/all?language=en&api_token=IQFcJSeC8TJ5PhJTmkBFh3wox5cDjhDeBM3bjz9s')
-	.then((response) => {
-		return response.json()
-	})
-	.then((data) => {
-		console.log(data)
-		let HTML = ""
-		for (let i=0; i < data.data.length; i++) {
-			HTML += '<ul><a href=" + data.data[i].url">' + data.data[i].title + " " + '</a></ul>'
-		}
-		document.getElementById ("news").innerHTML += HTML
-	})
-	.catch((error) => {
-		console.error(error)
-	});
