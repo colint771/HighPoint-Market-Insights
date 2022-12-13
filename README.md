@@ -12,7 +12,7 @@ N/A
 To use this web application, follow this link: https://colint771.github.io/HighPoint-Market-Insights
 
 The following image is a screenshot of the application:
-![img]HPMKTScreenshot  Medium.jpeg 
+![HPMKTScreenshot  Medium.jpeg](https://github.com/colint771/HighPoint-Market-Insights/blob/cddf921ece5433bdc2b204188bc48ed5ec675aa7/HPMKTScreenshot%20%20Medium.jpeg) 
 
 ## Credits
 
