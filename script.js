@@ -75,9 +75,9 @@ fetch('https://ms-finance.p.rapidapi.com/market/v2/get-movers?rapidapi-key=' + a
 		console.log(data)
  		let HTML = ""
  		for (let i=0; i < data.data[0].screen_data.crypto_data.length; i++){
-// 			HTML += "<div>" + data.data[0].screen_data.crypto_data[i].currency_symbol + " " + data.data[0].screen_data.crypto_data[i].name + " " + data.data[0].screen_data.crypto_data[i].inst_price_usd + " " + data.data[0].screen_data.crypto_data[i].change_percent_1d + "</div>"
+ 			HTML += "<div>" + data.data[0].screen_data.crypto_data[i].currency_symbol + " " + data.data[0].screen_data.crypto_data[i].name + " " + "$" + data.data[0].screen_data.crypto_data[i].inst_price_usd + " " + data.data[0].screen_data.crypto_data[i].change_percent_1d + "</div>"
  		}
-		document.getElementById ("crypto").innerHTML += HTML
+		document.getElementById ("crypto2").innerHTML += HTML
  	})
  		.catch((err) => {
  			console.error(err)
@@ -94,7 +94,7 @@ fetch('https://ms-finance.p.rapidapi.com/market/get-global-indices?performanceId
 		for (let i=0; i < data.gmbIndexDataList.length; i++){
 			HTML += "<div>" + data.gmbIndexDataList[i].ticker + " " + data.gmbIndexDataList[i].companyName + " " + "$" + data.gmbIndexDataList[i].lastPrice + " " + data.gmbIndexDataList[i].netChangePer + "%" + "</div>"
 	}
-		document.getElementById ("indices").innerHTML += HTML
+		document.getElementById ("indices2").innerHTML += HTML
 	})
 	.catch((err) => {
 		console.error(err)

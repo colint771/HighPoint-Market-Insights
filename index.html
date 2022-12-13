@@ -85,7 +85,7 @@
                 <!--gainer subheadings  -->
               <div class="subheading">
                 <div class="center-text">
-                  <h6 class="center-text">Ticker &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Last Price &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  % Change</h6>
+                  <h6 class="center-text">Ticker &nbsp; Last Price &nbsp;  % Change</h6>
                 </div>
               </div>
 
@@ -104,7 +104,7 @@
               <!-- Actives Subheadings -->
               <section class="subheading">
                 <div class="center-text">
-                  <h6 class="center-text">Ticker &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Last Price &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  % Change</h6>
+                  <h6 class="center-text">Ticker  &nbsp; Last Price  &nbsp;  % Change</h6>
                 </div>
               </section>
               <!-- Actives API data TODO: LINE UP EVENLY IF Possible APPLIES TO GAINERS LOSERS AND ACTIVES -->
@@ -121,7 +121,7 @@
 
               <section class="subheading">
                 <div class="center-text">
-                  <h6 class="center-text">Ticker &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Last Price &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  % Change</h6>
+                  <h6 class="center-text">Ticker  &nbsp; Last Price  &nbsp;  % Change</h6>
                 </div>
               </section>
 
@@ -131,43 +131,54 @@
             </div>
           </div>
       </section>
-      <hr>
+  <hr>
 
-      <hr>
+  <hr>
       <!-- TODO: NEED TO FIX THIS - somehow get subheading (ticker, price, etc) to line up with the data -->
       <div id ="indices">
         <h2 class="heading">Global Markets</h2>
-          <div class="flexbox-container">
+          <div class="flexbox-container column">
             <div class="flexbox-container4">
-              <h6 class="center-text">Ticker &nbsp; &nbsp; &nbsp; &nbsp; Index Name &nbsp; &nbsp; &nbsp; &nbsp; Last Price &nbsp; &nbsp; &nbsp; &nbsp;  % Change</h6>
+              <h6 class="center-text">Ticker  &nbsp; Index Name  &nbsp; Last Price  &nbsp;  % Change</h6>
             </div>
             <section class="data">
-              <div id="indices"></div>
+              <div id="indices2"></div>
             </section>
           </div>
       </div>
       
-      <hr>
+  <hr>
 
-      <hr>
+  <hr>
       <!-- Uncomment API on Script and put in similar format to the INDICES part TRY AND LINE IT UP EVENLY -->
       <div id ="crypto">
         <h2 class="heading">Crypto Top Gainers</h2>
-        <h6>Ticker</h6>
-        <h6>Name</h6>
-        <h6>Last Price</h6>
-        <h6> % Change (Day)</h6>
-        <hr>
+          <div class="flexbox-container column">
+            <div class="flexbox-container4">
+              <h6 class="center-text">Ticker  &nbsp; Name  &nbsp; Last Price  &nbsp;  % Change</h6>
+            </div>
+            <section class="data">
+              <div id="crypto2"></div>
+            </section>
+          </div>
       </div>
 
-      <hr>
+  <hr>
 
-      <hr>
+  <hr>
 <!-- uncomment the news API and center the article titles-->
-      <div id ="news">
-        <h2 class="row column text-center">News</h2>
-        <hr>
+      <div>
+        <h2 class="heading">News</h2>
+          <div class="flexbox-container column">
+            <div class="flexbox-container4"></div>
+            <section class="data">
+              <div id="news"></div>
+            </section>
+          </div>
+
+        
       </div>
+
       
     <script src="./script.js"></script>
     
