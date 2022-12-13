@@ -11,7 +11,6 @@ N/A
 
 To use this web application, follow this link: https://colint771.github.io/HighPoint-Market-Insights
 
-The following image is a screenshot of the application:
 ![img]
 
 ## Credits
